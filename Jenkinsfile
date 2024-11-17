@@ -5,21 +5,43 @@ pipeline {
     DOCKER_CREDS = credentials('docker-hub-credentials')
   }
 
-  stages {
-    stage ('Build') {
-      agent any
-      steps {
-        sh '''#!/bin/bash
-        <code to build the application>
-        '''
-      }
-    }
+stages {
+        stage('Build') {
+            parallel {
+                stage('Build Frontend') {
+                    steps {
+                        sh '''#!/bin/bash
+                        curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
+                        sudo apt install -y nodejs
+                        cd frontend
+                        sed -i "s|http://private_ec2_ip:8000|http://${private_ip}:8000|" package.json
+                        npm i
+                        export NODE_OPTIONS=--openssl-legacy-provider
+                        npm start &
+                        '''
+                    }
+                }
+                stage('Build Backend') {
+                    steps {
+                        sh '''#!/bin/bash
+                        sudo add-apt-repository ppa:deadsnakes/ppa -y
+                        sudo apt update -y
+                        sudo apt install -y python3.9 python3.9-venv python3.9-dev python3-pip
+                        python3.9 -m venv venv
+                        source venv/bin/activate
+                        pip install -r backend/requirements.txt
+                        python3 backend/manage.py runserver 0.0.0.0:8000 &
+                        '''
+                    }
+                }
+            }
+        }
 
     stage ('Test') {
       agent any
       steps {
         sh '''#!/bin/bash
-        <code to activate virtual environment>
+        source venv/bin/activate
         pip install pytest-django
         python backend/manage.py makemigrations
         python backend/manage.py migrate
@@ -48,14 +70,14 @@ pipeline {
         
         // Build and push backend
         sh '''
-          docker build -t <backend image tagged for dockerhub>:latest -f Dockerfile.backend .
-          docker push <backend image tagged for dockerhub:latest
+          docker build -t tortiz7/ecommerce-backend-image:latest -f Dockerfile.backend .
+          docker push tortiz7/ecommerce-backend-image:latest
         '''
         
         // Build and push frontend
         sh '''
-          docker build -t <frontent image tagged for dockerhub>:latest -f Dockerfile.frontend .
-          docker push <frontend image tagged for dockerhub>:latest
+          docker build -t tortiz7/ecommerce-frontend-image:latest -f Dockerfile.frontend .
+          docker push tortiz7/ecommerce-frontend-image:latest
         '''
       }
     }
