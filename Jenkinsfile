@@ -16,6 +16,7 @@ pipeline {
         pip install -r backend/requirements.txt
         
         # Frontend Build
+        curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
         sudo apt-get install -y nodejs
         cd ./frontend
         export NODE_OPTIONS=--openssl-legacy-provider
