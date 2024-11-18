@@ -77,8 +77,6 @@ pipeline {
             sh '''#!/bin/bash
             terraform init
             terraform apply -auto-approve -var-file=${TFVARS} \
-              -var="dockerhub_username=${DOCKER_CRED_USR}" \
-              -var="dockerhub_password=${DOCKER_CRED_PSW}"
             '''
           }
         }
