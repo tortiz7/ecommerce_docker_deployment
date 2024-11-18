@@ -11,6 +11,7 @@ pipeline {
         stage('Build Frontend') {
           steps {
             sh '''#!/bin/bash
+            export DEBIAN_FRONTEND=noninteractive
             curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
             sudo apt install -y nodejs
             cd frontend
