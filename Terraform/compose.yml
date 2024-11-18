@@ -5,14 +5,9 @@ services:
     image: tortiz7/ecommerce-backend-image:latest
     environment:
       - DB_HOST=${rds_endpoint}
+      - RUN_MIGRATIONS=${run_migrations}
     ports:
       - "8000:8000"
-    command: >
-          sh -c "python manage.py migrate &&
-                python manage.py dumpdata --database=sqlite --natural-foreign --natural-primary -e contenttypes -e auth.Permission --indent 4 > datadump.json &&
-                python manage.py loaddata datadump.json &&
-                rm -f db.sqlite3 &&
-                python manage.py runserver 0.0.0.0:8000"
 
   frontend:
     image: tortiz7/ecommerce-frontend-image:latest

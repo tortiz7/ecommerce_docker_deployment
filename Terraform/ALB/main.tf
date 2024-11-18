@@ -26,16 +26,17 @@ resource "aws_security_group" "alb_sg" {
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
-
-egress {
-    description = "Allow all outbound traffic"
-    from_port   = 3000
-    to_port     = 3000
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
 }
+
+# egress {
+#     description = "Allow all outbound traffic"
+#     from_port   = 3000
+#     to_port     = 3000
+#     protocol    = "tcp"
+#     cidr_blocks = ["0.0.0.0/0"]
+#   }
+
+# }
 
 resource "aws_lb" "frontend_alb" {
   name               = var.alb_name
@@ -66,7 +67,7 @@ resource "aws_lb_target_group" "frontend_tg" {
 resource "aws_lb_target_group_attachment" "frontend_tg_attachment" {
   count            = var.frontend_count  
   target_group_arn = aws_lb_target_group.frontend_tg.arn
-  target_id        = var.frontend_server_ids[count.index]  
+  target_id        = var.backend_server_ids[count.index]  
   port             = var.frontend_port  
 }
 

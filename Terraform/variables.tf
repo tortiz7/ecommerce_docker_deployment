@@ -9,6 +9,7 @@
  }                                        # Replace with your AWS secret access key (leave empty if using IAM roles or env vars)
 
 variable region{
+  type = string
 }
 
  variable dockerhub_user{
@@ -22,6 +23,7 @@ variable region{
  }        
 
  variable instance_type{
+  type = string
  }  
 
 variable "frontend_count"{

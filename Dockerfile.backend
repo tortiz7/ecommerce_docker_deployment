@@ -2,7 +2,7 @@ FROM python:3.9
 
 WORKDIR /app
 
-COPY backend/ /app/
+COPY ./backend /app
 
 RUN pip install --upgrade pip
 RUN pip install django-environ
@@ -12,7 +12,9 @@ RUN python manage.py makemigrations account
 RUN python manage.py makemigrations payments
 RUN python manage.py makemigrations product
 
+RUN chmod +x /app/start_app.sh
+
 EXPOSE 8000
 
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+ENTRYPOINT ["./start_app.sh"]
 

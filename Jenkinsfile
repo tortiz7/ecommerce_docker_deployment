@@ -87,9 +87,10 @@ stages {
       agent { label 'build-node' }
       steps {
         dir('Terraform') {
+            withCredentials([file(credentialsId: 'tf_vars', variable: 'TFVARS')]) {
           sh '''
             terraform init
-            terraform apply -auto-approve \
+            terraform apply -auto-approve -var-file=${TFVARS} \
               -var="dockerhub_username=${DOCKER_CREDS_USR}" \
               -var="dockerhub_password=${DOCKER_CREDS_PSW}"
           '''

@@ -16,6 +16,9 @@ variable "backend_count"{
 variable "frontend_server_ids"{
 }
 
+variable "backend_server_ids"{
+}
+
 variable "public_subnet"{
 }
 

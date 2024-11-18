@@ -49,13 +49,22 @@ echo \
   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 sudo apt-get update
 
-sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
-# Install Docker Compose:
+sleep 60
 
-sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-sudo chmod +x /usr/local/bin/docker-compose
-docker-compose --version
+### Post Install Docker Group
+sudo groupadd docker
+sudo usermod -aG docker ubuntu
+sudo usermod -aG docker jenkins
+newgrp docker
+
+# Verify Docker Compose:
+
+docker compose --version || { echo "docker compose not found"; exit 1; }
+
+docker_pass=${docker_pass}
+docker_user=${docker_user}
 
 # Log into DockerHub with the credential variables
 echo "$docker_pass" | docker login --username "$docker_user" --password-stdin
@@ -72,11 +81,14 @@ ${docker_compose}
 EOF
 echo "[$(date '+%Y-%m-%d %H:%M:%S')] docker-compose.yml created"
 
-docker-compose pull
+docker compose pull
 
-docker-compose up -d --force-recreate
+docker compose up -d --force-recreate
+echo "Docker Compose services deployed."
+
+cat docker-compose.yml
 
 # Clean up Docker and Logout
 
-docker system prune -af
+docker system prune -f
 docker logout

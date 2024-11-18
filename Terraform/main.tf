@@ -33,6 +33,7 @@ module "EC2"{
   frontend_port = var.frontend_port
   dockerhub_user = var.dockerhub_user
   dockerhub_pass = var.dockerhub_pass
+  nat_gw = module.VPC.nat_gw
 
 }
 
@@ -57,6 +58,7 @@ module "ALB"{
   backend_count = var.backend_count
   frontend_count = var.frontend_count
   frontend_server_ids = module.EC2.frontend_server_ids
+  backend_server_ids = module.EC2.backend_server_ids
   public_subnet = module.VPC.public_subnet
   vpc_id = module.VPC.vpc_id
 

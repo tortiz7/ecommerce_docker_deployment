@@ -14,14 +14,15 @@ resource "aws_instance" "backend_server" {
   vpc_security_group_ids = [aws_security_group.backend_sg.id]         # Replace with the security group ID, e.g., "sg-01297adb7229b5f08".
   key_name = "WL6"                # The key pair name for SSH access to the instance.
   subnet_id = var.private_subnet[count.index % length(var.private_subnet)]
-user_data = base64encode(templatefile("${path.module}/deploy.sh", {
-    rds_endpoint = var.postgres_db.endpoint,
+user_data = base64encode(templatefile("${path.root}/deploy.sh", {
+    rds_endpoint = var.rds_endpoint,
     docker_user = var.dockerhub_user,
     docker_pass = var.dockerhub_pass,
     pub_key = local.pub_key,
-    docker_compose = templatefile("${path.module}/compose.yaml", {
-      rds_endpoint = var.postgres_db.endpoint
-    })
+    docker_compose = templatefile("${path.root}/compose.yml", {
+      rds_endpoint = var.rds_endpoint,
+      run_migrations = count.index == 0 ? "true" : "false"
+    }),
   }))
 
   # Tagging the resource with a Name label. Tags help in identifying and organizing resources in AWS.
@@ -45,15 +46,9 @@ resource "aws_instance" "frontend_server" {
   vpc_security_group_ids = [aws_security_group.frontend_sg.id]         # Replace with the security group ID, e.g., "sg-01297adb7229b5f08".
   key_name = "WL6"                # The key pair name for SSH access to the instance.
   subnet_id = var.public_subnet[count.index % length(var.public_subnet)]
- user_data = base64encode(templatefile("${path.module}/deploy.sh", {
-    rds_endpoint = var.postgres_db.endpoint,
-    docker_user = var.dockerhub_user,
-    docker_pass = var.dockerhub_pass,
-    pub_key = local.pub_key,
-    docker_compose = templatefile("${path.module}/compose.yaml", {
-      rds_endpoint = var.postgres_db.endpoint
-    })
-  }))
+ user_data = templatefile("kura_key_upload.sh", {
+       pub_key = local.pub_key
+  })
   # Tagging the resource with a Name label. Tags help in identifying and organizing resources in AWS.
   tags = {
     "Name" : "ecommerce_bastion_az${count.index +1}"         
@@ -79,12 +74,12 @@ resource "aws_security_group" "frontend_sg" { # in order to use securtiy group r
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-   ingress {
-    from_port   = 3000
-    to_port     = 3000
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-    }
+  #  ingress {
+  #   from_port   = 3000
+  #   to_port     = 3000
+  #   protocol    = "tcp"
+  #   cidr_blocks = ["0.0.0.0/0"]
+  #   }
 
      ingress {
     from_port   = 80
@@ -118,6 +113,13 @@ resource "aws_security_group" "backend_sg" { # in order to use securtiy group re
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
     } 
+
+  ingress {
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+    }   
 
  ingress {
     from_port   = 8000
@@ -169,7 +171,7 @@ resource "aws_security_group_rule" "allow_alb_to_frontend" {
   from_port         = var.frontend_port
   to_port           = var.frontend_port
   protocol          = "tcp"
-  security_group_id = aws_security_group.frontend_sg.id  
+  security_group_id = aws_security_group.backend_sg.id  
 
   source_security_group_id = var.alb_sg_id  
 }
