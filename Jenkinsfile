@@ -8,20 +8,14 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-       sh '''#!/bin/bash
-       #Backend Build
+        sh '''#!/bin/bash
+        sudo add-apt-repository ppa:deadsnakes/ppa -y
+        sudo apt update -y
+        sudo apt install -y python3.9 python3.9-venv python3.9-dev python3-pip
         python3.9 -m venv venv
         source venv/bin/activate
-        pip install --upgrade pip
         pip install -r backend/requirements.txt
-        
-        # Frontend Build
-        curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
-        sudo apt-get install -y nodejs
-        cd ./frontend
-        export NODE_OPTIONS=--openssl-legacy-provider
-        export CI=false
-        npm ci
+        python3 backend/manage.py runserver 0.0.0.0:8000 &
         '''
       }
     }
@@ -58,17 +52,19 @@ pipeline {
         echo ${DOCKER_CRED_PSW} | docker login -u ${DOCKER_CRED_USR} --password-stdin
         '''
         
-        // Build and push backend
-        sh '''#!/bin/bash
-        docker build -t tortiz7/ecommerce-backend-image:latest -f Dockerfile.backend .
-        docker push tortiz7/ecommerce-backend-image:latest
-        '''
-        
-        // Build and push frontend
-        sh '''#!/bin/bash
-        docker build -t tortiz7/ecommerce-frontend-image:latest -f Dockerfile.frontend .
-        docker push tortiz7/ecommerce-frontend-image:latest
-        '''
+        script {
+          // Build and push backend
+          sh '''#!/bin/bash
+          docker build -t tortiz7/ecommerce-backend-image:latest -f Dockerfile.backend .
+          docker push tortiz7/ecommerce-backend-image:latest
+          '''
+          
+          // Build and push frontend
+          sh '''#!/bin/bash
+          docker build -t tortiz7/ecommerce-frontend-image:latest -f Dockerfile.frontend .
+          docker push tortiz7/ecommerce-frontend-image:latest
+          '''
+        }
       }
     }
 
