@@ -8,14 +8,19 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh '''#!/bin/bash
-        sudo add-apt-repository ppa:deadsnakes/ppa -y
-        sudo apt update -y
-        sudo apt install -y python3.9 python3.9-venv python3.9-dev python3-pip
+       sh '''#!/bin/bash
+       #Backend Build
         python3.9 -m venv venv
         source venv/bin/activate
+        pip install --upgrade pip
         pip install -r backend/requirements.txt
-        python3 backend/manage.py runserver 0.0.0.0:8000 &
+        
+        # Frontend Build
+        sudo apt-get install -y nodejs
+        cd frontend
+        export NODE_OPTIONS=--openssl-legacy-provider
+        export CI=false
+        npm ci
         '''
       }
     }
