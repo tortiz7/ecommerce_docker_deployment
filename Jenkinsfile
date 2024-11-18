@@ -17,7 +17,7 @@ pipeline {
         
         # Frontend Build
         sudo apt-get install -y nodejs
-        cd frontend
+        cd ./frontend
         export NODE_OPTIONS=--openssl-legacy-provider
         export CI=false
         npm ci
