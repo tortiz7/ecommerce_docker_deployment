@@ -33,6 +33,7 @@ pipeline {
     }
 
     stage('Cleanup') {
+      agent { label 'build-node' }
       steps {
         sh '''#!/bin/bash
         # Only clean Docker system
@@ -45,6 +46,7 @@ pipeline {
     }
 
     stage('Build & Push Images') {
+      agent { label 'build-node' }
       steps {
         sh '''
         echo ${DOCKER_CRED_PSW} | docker login -u ${DOCKER_CRED_USR} --password-stdin
@@ -65,6 +67,7 @@ pipeline {
     }
 
     stage('Infrastructure') {
+      agent { label 'build-node' }
       steps {
         dir('Terraform') {
           withCredentials([file(credentialsId: 'tf_vars', variable: 'TFVARS')]) {
@@ -82,6 +85,7 @@ pipeline {
 
   post {
     always {
+      agent { label 'build-node' }
       steps {
         sh '''#!/bin/bash
         docker logout
