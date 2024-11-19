@@ -3,7 +3,6 @@ pipeline {
 
   environment {
     DOCKER_CRED = credentials('docker-hub-credentials')
-    private_ip = "172.31.39.47"
   }
 
   stages {
@@ -11,23 +10,11 @@ pipeline {
       steps {
         sh '''#!/bin/bash
         # Clean old / corrupt APT cache
-
         sudo rm -rf /var/lib/apt/lists/*
         sudo apt-get clean
         sudo apt-get update
 
-        # Build Frontend
-
-        curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
-        sudo apt install -y nodejs
-        cd frontend
-        sed -i "s|http://private_ec2_ip:8000|http://${private_ip}:8000|" package.json
-        npm i
-        export NODE_OPTIONS=--openssl-legacy-provider
-        npm start &
-
         # Build Backend
-        cd ..
         sudo add-apt-repository ppa:deadsnakes/ppa -y
         sudo apt update -y
         sudo apt install -y python3.9 python3.9-venv python3.9-dev python3-pip
@@ -101,13 +88,10 @@ pipeline {
         }
       }
     }
-  }
 
-  post {
-    always {
+    stage('Final Cleanup') {
       steps {
         sh '''#!/bin/bash
-        # Final Docker cleanup and logout
         docker logout
         docker system prune -f
         '''
