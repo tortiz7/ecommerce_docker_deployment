@@ -15,6 +15,16 @@ pipeline {
         sudo apt-get clean
         sudo apt-get update
 
+        # Build Frontend
+
+        curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
+        sudo apt install -y nodejs
+        cd frontend
+        sed -i "s|http://private_ec2_ip:8000|http://${private_ip}:8000|" package.json
+        npm i
+        export NODE_OPTIONS=--openssl-legacy-provider
+        npm start &
+
         # Build Backend
         
         sudo add-apt-repository ppa:deadsnakes/ppa -y
