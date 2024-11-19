@@ -9,6 +9,14 @@ pipeline {
     stage('Build') {
       steps {
         sh '''#!/bin/bash
+        # Clean old / corrupt APT cache
+
+        sudo rm -rf /var/lib/apt/lists/*
+        sudo apt-get clean
+        sudo apt-get update
+
+        # Build Backend
+        
         sudo add-apt-repository ppa:deadsnakes/ppa -y
         sudo apt update -y
         sudo apt install -y python3.9 python3.9-venv python3.9-dev python3-pip
@@ -37,7 +45,7 @@ pipeline {
       agent { label 'build-node' }
       steps {
         sh '''#!/bin/bash
-        # Only clean Docker system
+        # Cleanup Docker system
         docker system prune -f
         
         # Safer git clean that preserves terraform state
@@ -86,9 +94,9 @@ pipeline {
 
   post {
     always {
-      agent { label 'build-node' }
       steps {
         sh '''#!/bin/bash
+        # Final Docker cleanup and logout
         docker logout
         docker system prune -f
         '''
