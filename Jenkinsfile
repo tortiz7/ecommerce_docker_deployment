@@ -3,6 +3,7 @@ pipeline {
 
   environment {
     DOCKER_CRED = credentials('docker-hub-credentials')
+    private_ip = "172.31.39.47"
   }
 
   stages {
@@ -26,7 +27,7 @@ pipeline {
         npm start &
 
         # Build Backend
-        
+        cd ..
         sudo add-apt-repository ppa:deadsnakes/ppa -y
         sudo apt update -y
         sudo apt install -y python3.9 python3.9-venv python3.9-dev python3-pip
