@@ -90,6 +90,7 @@ pipeline {
     }
 
     stage('Final Cleanup') {
+      agent { label 'build-node'}
       steps {
         sh '''#!/bin/bash
         docker logout
