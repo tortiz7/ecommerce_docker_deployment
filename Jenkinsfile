@@ -76,7 +76,7 @@ pipeline {
           withCredentials([file(credentialsId: 'tf_vars', variable: 'TFVARS')]) {
             sh '''#!/bin/bash
             terraform init
-            terraform apply -auto-approve -var-file=${TFVARS} \
+            terraform apply -auto-approve -var-file=${TFVARS}
             '''
           }
         }

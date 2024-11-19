@@ -96,7 +96,7 @@ resource "aws_security_group" "frontend_sg" { # in order to use securtiy group r
   }
   # Tags for the security group
   tags = {
-    "Name"      : "frontend_SG_tf_made"                          # Name tag for the security group
+    "Name"      : "Bastion_SG"                          # Name tag for the security group
     "Terraform" : "true"                                # Custom tag to indicate this SG was created with Terraform
   }
 }
@@ -152,7 +152,7 @@ resource "aws_security_group" "backend_sg" { # in order to use securtiy group re
 
  # Tags for the security group
   tags = {
-    "Name"      : "backend_SG_tf_made"                          # Name tag for the security group
+    "Name"      : "App_SG"                          # Name tag for the security group
     "Terraform" : "true"                                # Custom tag to indicate this SG was created with Terraform
     }
 }

@@ -84,5 +84,5 @@ resource "aws_lb_listener" "http_listener" {
 
 output "alb_dns_name" {
   value = aws_lb.frontend_alb.dns_name
-  description = "The DNS name of the frontend ALB"
+  description = "KuraCommerce"
 }
