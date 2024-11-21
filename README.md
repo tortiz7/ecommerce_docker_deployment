@@ -1446,6 +1446,29 @@ By leveraging Docker containers, Terraform Infrastructure as Code, Jenkins CI/CD
 
 This implementation transcends traditional deployment methodologies, embodying a comprehensive DevOps philosophy that integrates Jenkins for continuous integration and delivery, precise resource management, and holistic monitoring. This project serves as a blueprint for modern cloud engineering, demonstrating how infrastructure can be treated as code, containers can become deployment units, and automation can drive operational efficiency. The result is not just an e-commerce application, but a resilient, future-proof system ready to meet the demanding challenges of contemporary cloud computing.
 
+---
+## Documentation
+
+
+![WL5_Website](https://github.com/user-attachments/assets/12ae5e37-e848-4685-a051-db22ed91aa10)
+
+
+![WL6_AppServer1_Grafana](https://github.com/user-attachments/assets/a06bf5d1-59f9-45db-ba94-6518d05ed8fa)
+
+
+![WL6_AppServer2_Grafana](https://github.com/user-attachments/assets/d30ae59a-6582-49f9-9aee-993a93256591)
+
+
+![WL6_Jenkins_Pipeline_Console](https://github.com/user-attachments/assets/c3a5f7bb-2590-48b8-9883-19e08d3f2054)
+
+
+![WL6_Jenkins_Pipieline_Success](https://github.com/user-attachments/assets/e1e2e490-e97e-4fb2-9d89-d0c49c21c4b7)
+
+
+
+
+
+
 
 
 
