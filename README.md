@@ -1389,7 +1389,7 @@ sudo systemctl restart prometheus
 ---
 ## System Diagram
 
-[WL6_Diagram](https://github.com/tortiz7/ecommerce_docker_deployment/blob/main/Diagram.jpg))
+[WL6_Diagram](https://github.com/tortiz7/ecommerce_docker_deployment/blob/main/Diagram.jpg)
 
 ---
 ## Issues/Troubleshooting
@@ -1442,12 +1442,10 @@ We can (and should!) automate snapshots of our PostgreSQL DB so that we can easi
 ---
 ## Conclusion
 
-By leveraging Docker containers, Terraform Infrastructure as Code, Jenkins CI/CD, and a multi-AZ architecture, we've transformed a traditional deployment into a robust, scalable cloud ecosystem. This workload represents more than a technical upgrade—it's a strategic approach to cloud-native development that prioritizes flexibility, security, and operational excellence. Through containerization, infrastructure automation, and intelligent multi-subnet design, we've created an application infrastructure that can dynamically adapt, scale, and maintain high availability.
+By leveraging Docker containers, Terraform Infrastructure as Code, Jenkins CI/CD, and a multi-AZ architecture, we've transformed a traditional deployment into a robust, scalable cloud ecosystem. This workload represents more than a technical upgrade—it's a strategic approach to cloud-native development that prioritizes flexibility, security, and operational excellence. Through containerization, infrastructure automation, and intelligent multi-subnet design, we've created an application infrastructure that can dynamically adapt, scale, and maintain high availability. This is a vast improvement on even the last Workload I've shared with you - and symbolized a huge evolution in my abilities as an engineer. 
 
-Our implementation transcends traditional deployment methodologies, embodying a comprehensive DevOps philosophy that integrates Jenkins for continuous integration and delivery, precise resource management, and holistic monitoring. This project serves as a blueprint for modern cloud engineering, demonstrating how infrastructure can be treated as code, containers can become deployment units, and automation can drive operational efficiency. The result is not just an e-commerce application, but a resilient, future-proof system ready to meet the demanding challenges of contemporary cloud computing.
+This implementation transcends traditional deployment methodologies, embodying a comprehensive DevOps philosophy that integrates Jenkins for continuous integration and delivery, precise resource management, and holistic monitoring. This project serves as a blueprint for modern cloud engineering, demonstrating how infrastructure can be treated as code, containers can become deployment units, and automation can drive operational efficiency. The result is not just an e-commerce application, but a resilient, future-proof system ready to meet the demanding challenges of contemporary cloud computing.
 
-
-![EDR_WL5 drawio](https://github.com/user-attachments/assets/77a55097-222b-4739-8d91-1656ca7db769)
 
 
 
