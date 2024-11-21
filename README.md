@@ -1389,7 +1389,7 @@ sudo systemctl restart prometheus
 ---
 ## System Diagram
 
-![WL5_Diagram](https://github.com/user-attachments/assets/e54edc7d-8136-4ad7-b741-2bd6b67b8520)
+[WL6_Diagram](https://github.com/tortiz7/ecommerce_docker_deployment/blob/main/Diagram.jpg))
 
 ---
 ## Issues/Troubleshooting
