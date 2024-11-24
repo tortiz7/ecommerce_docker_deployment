@@ -3,3 +3,4 @@ terraform.tfvars
 *.tfstate.backup
 *.tfvars
 .terraform/
+fraud_detection_venv
