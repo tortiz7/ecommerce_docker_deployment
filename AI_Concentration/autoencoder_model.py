@@ -17,6 +17,7 @@ from tensorflow.keras.models import Model
 from tensorflow.keras.layers import Input, Dense, Dropout
 from tensorflow.keras.callbacks import EarlyStopping
 from datetime import datetime
+from sklearn.metrics import f1_score, accuracy_score
 
 class AutoencoderFraudDetector:
     def __init__(self, db_path='db.sqlite3', table_name='account_stripemodel'):
@@ -114,38 +115,35 @@ class AutoencoderFraudDetector:
             
     def build_model(self, input_dim):
         input_layer = Input(shape=(input_dim,))
-        
+    
         # Encoder
-        encoded = Dense(64, activation='relu')(input_layer)
+        encoded = Dense(12, activation='relu')(input_layer)
+        encoded = Dense(24, activation='relu')(encoded)
         encoded = Dropout(0.2)(encoded)
-        encoded = Dense(32, activation='relu')(encoded)
-        encoded = Dropout(0.2)(encoded)
-        encoded = Dense(16, activation='relu')(encoded)
+        encoded = Dense(12, activation='relu')(encoded)
         
         # Bottleneck
-        bottleneck = Dense(8, activation='relu')(encoded)
+        bottleneck = Dense(4, activation='relu')(encoded)
         
         # Decoder
-        decoded = Dense(16, activation='relu')(bottleneck)
+        decoded = Dense(12, activation='relu')(bottleneck)
+        decoded = Dense(24, activation='relu')(decoded)
         decoded = Dropout(0.2)(decoded)
-        decoded = Dense(32, activation='relu')(decoded)
-        decoded = Dropout(0.2)(decoded)
-        decoded = Dense(64, activation='relu')(decoded)
+        decoded = Dense(12, activation='relu')(decoded)
         decoded = Dense(input_dim, activation='sigmoid')(decoded)
         
         # Create and compile model
         autoencoder = Model(inputs=input_layer, outputs=decoded)
         autoencoder.compile(optimizer='adam', 
-                          loss='mse',
-                          metrics=['mae', 'mse'])
-        
+                      loss='mse',
+                      metrics=['mae', 'mse', 'accuracy'])  # Added accuracy metric
         return autoencoder
         
     def fit(self, data=None):
         try:
             if data is None:
-                data = self.load_data()
-            
+             data = self.load_data()
+        
             prepared_data = self.prepare_data(data)
             
             train_data, test_data = train_test_split(prepared_data, test_size=0.2, random_state=42)
@@ -170,17 +168,41 @@ class AutoencoderFraudDetector:
                 verbose=1
             )
             
+            # Calculate reconstruction error and predictions
             predictions = self.autoencoder.predict(test_data)
             mse = np.mean(np.power(test_data - predictions, 2), axis=1)
             self.threshold = np.percentile(mse, 95)
             
+            # Calculate binary predictions for F1 score
+            binary_predictions = (mse > self.threshold).astype(int)
+            
+            # Assume anomalies in test set based on threshold
+            assumed_true = (np.mean(np.power(test_data - test_data.mean(), 2), axis=1) > self.threshold).astype(int)
+            
+            # Calculate F1 score
+            f1 = f1_score(assumed_true, binary_predictions)
+            final_accuracy = history.history['accuracy'][-1]
+            val_accuracy = history.history['val_accuracy'][-1]
+            
             print("\nTraining completed:")
             print(f"Final loss: {history.history['loss'][-1]:.4f}")
+            print(f"Final training accuracy: {final_accuracy:.4f}")
+            print(f"Final validation accuracy: {val_accuracy:.4f}")
+            print(f"F1 Score: {f1:.4f}")
             print(f"Threshold set at: {self.threshold:.4f}")
             
+            # Store metrics for later use
+            self.metrics = {
+                'final_loss': history.history['loss'][-1],
+                'final_accuracy': final_accuracy,
+                'val_accuracy': val_accuracy,
+                'f1_score': f1,
+                'threshold': self.threshold
+            }
+
         except Exception as e:
             print(f"Error in model training: {e}")
-            raise
+        raise
             
     def predict(self, data=None):
         try:
