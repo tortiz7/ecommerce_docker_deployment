@@ -1,0 +1,23 @@
+id,card_id,user_id,card_number,exp_month,exp_year,customer_id,email,address_city,address_country,address_state,address_zip,name_on_card,DBSCAN,IsolationForest,Autoencoder
+26,card_1J40WaKueibZHHFgK8QECEmm,1,4242424242424242,8,2028,cus_JhPLb4Px3sW8Oe,yashmarmat08@gmail.com,New Delhi,INDIA,Delhi,111111,Yash Marmat,1,1,1
+43,card_1J5X90KueibZHHFg7gBtZ9t7,10,5105105105105100,5,2025,cus_JhOEawmNLspNTR,testuser@gmail.com,,,,,,1,1,1
+117,c10646d7-97ba-4a95-9207-93634eeecc28,170,3533190687673623,12,2026,5a9e1510-b4fa-442f-af27-3c7b7d452057,aturner6022@example.com,East Jessica,USA,Montana,42880,Angela Turner,1,0,0
+255,d709047c-a410-4ab1-9560-16c55e85e651,308,213172713217156,01,2028,ff25a891-8df9-4459-abc6-45a1f48a2e96,bespinoza1566@example.com,East Davidfort,USA,Virginia,45481,Brandon Espinoza,1,0,0
+782,0795f1a6-b0d1-4282-9a68-99ddde18cc3f,835,180032284840993,06,2029,87d77694-c145-46c3-9090-cc71c35ba51a,jlewis5469@example.com,Lake Alexanderhaven,USA,Arizona,36487,Jerry Lewis,1,0,0
+791,0f491171-646e-47db-9b4e-71242cb485b0,844,3558344014913349,12,2023,1b4a89b7-c159-46f1-8829-8595feb1e7e9,jrogers5758@example.com,Gonzaleston,USA,Nebraska,24988,James Rogers,1,0,0
+801,9a32f9e7-d66d-43dc-ae69-c1b539362c31,854,2258768460076125,03,2023,9a44f7e8-c41c-448e-bebf-cf202ea5c554,hmckay9733@example.com,South Kristintown,USA,Ohio,68539,Heather Mckay,1,0,0
+923,a34254a6-955f-42bd-9a1b-6c0ab0ad3c6b,976,6501578718682277,01,2028,2d3fa0bf-a3de-43ec-ad8c-8a51d0959632,skennedy4103@example.com,Huffmanland,USA,Florida,73287,Shawn Kennedy,1,1,1
+1051,3c720b38-737d-4a90-a131-bc90d557aad4,1104,373402428572603,05,2030,23488191-fce5-49b1-b970-93a3c9d348f1,jbanks4785@example.com,Port Amandaberg,USA,Arizona,72976,Jonathan Banks,1,0,0
+1251,02138f94-4f9b-4881-a8ad-9c9537cc16ff,1304,342561906110414,03,2029,29691b84-b1ef-46b1-ac6a-7f3c6c4f0a2a,jpeterson6061@example.com,East Christopher,USA,Iowa,15175,Joseph Peterson,1,0,0
+1411,2455b55d-22e2-4e5c-80c8-cbe5905433a2,1464,5225121756151181,02,2025,ac8b2b83-91a5-4704-9fc1-42662440c725,jespinoza6145@example.com,Nguyenport,USA,Montana,93378,John Espinoza,1,0,0
+1459,bf60d133-8644-41d4-afd4-fc876507ab6d,1512,2257383428666982,12,2029,e5a12397-af99-4710-a3cb-0bc64d7e378d,scastillo8872@example.com,Humphreyburgh,USA,Virginia,23747,Steven Castillo,1,0,0
+1548,684931bd-f4cf-4907-aa81-b5bd21595bd3,1601,3546131624283295,08,2032,fa6541c8-0980-425e-812b-e2e3a1f94afb,jthompson8413@example.com,Port Deniseland,USA,Connecticut,18101,Jason Thompson,1,0,0
+1593,a3ff3689-b416-4e21-a3dc-100890e3f166,1646,3512348023588906,12,2029,bd15cca1-2bfa-4b2c-94ff-7515438f162c,csanders4845@example.com,Juliaberg,USA,Virginia,24115,Cathy Sanders,1,0,0
+1696,0b89d057-2889-48d5-9ac8-eb4a930c9f88,1749,630498432396,01,2032,a6aabed6-e6f5-4f71-b668-abf7e9184989,cdavis5298@example.com,Brownburgh,USA,Ohio,53558,Christine Davis,1,0,0
+1767,bf2e3798-cf0d-4c9a-97f1-b37f8090fc10,1820,4509317518127651078,03,2023,437c711f-06e4-4710-ae42-f529e1f77548,tjackson3186@example.com,Port Chrisshire,USA,Maine,59045,Tricia Jackson,1,0,0
+1899,350c2fdc-c239-4080-9c6f-1e1562832985,1952,3541232444502784,08,2032,cfcb2c57-e64f-451e-a4a3-27206518f696,jjordan6821@example.com,Wilkinsonview,USA,Connecticut,45972,Jennifer Jordan,1,0,0
+1943,fd8eef7f-d859-42a9-bc21-d4b02ca28906,1996,2639783849228289,01,2033,f7d1bf9f-d876-46ff-8717-545202a2fb11,cestes8657@example.com,Kylieberg,USA,Illinois,60588,Christine Estes,1,0,0
+2054,61122b05-d340-4b89-b3bd-5dd03eac3c56,2107,30307107328299,01,2032,b9e6a0b2-3981-4b9a-b723-c29707635005,ahill4054@example.com,Port Jose,USA,Ohio,98691,April Hill,1,0,0
+2254,bc027896-c9c2-42f5-a131-c8a7b27c5e30,2307,3566897603495366,12,2032,1f05543f-7262-4390-a690-90342564b116,kduran7321@example.com,Maryfurt,USA,Virginia,29803,Kenneth Duran,1,0,0
+2319,f2d81595-a08e-462c-9e14-44559bf4bf06,2372,3587599023237577,12,2033,fa20c1b2-95b3-434a-944b-8f0547d06d2c,jjones2776@example.com,North Shawn,USA,Illinois,46569,John Jones,1,0,0
+2855,ad07a731-0c40-4589-8dec-9cb7748f2ef6,2908,213174926068145,01,2032,99a7ef1b-37ea-4af4-b710-7a1cfc0ccd71,kwalker5700@example.com,East Michaelland,USA,Illinois,68485,Kevin Walker,1,0,0

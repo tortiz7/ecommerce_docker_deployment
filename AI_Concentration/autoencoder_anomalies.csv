@@ -1,0 +1,32 @@
+id,card_id,user_id,card_number,exp_month,exp_year,customer_id,email,address_city,address_country,address_state,address_zip,name_on_card,DBSCAN,IsolationForest,Autoencoder
+26,card_1J40WaKueibZHHFgK8QECEmm,1,4242424242424242,8,2028,cus_JhPLb4Px3sW8Oe,yashmarmat08@gmail.com,New Delhi,INDIA,Delhi,111111,Yash Marmat,1,1,1
+43,card_1J5X90KueibZHHFg7gBtZ9t7,10,5105105105105100,5,2025,cus_JhOEawmNLspNTR,testuser@gmail.com,,,,,,1,1,1
+142,ed0abbda-5e42-4555-8afb-e2e6d0f64021,195,3502332378657864,01,2024,fb323643-d51b-4863-909a-4ae1969b6923,vmooney1420@example.com,Crossbury,USA,Arizona,17283,Vincent Mooney,0,0,1
+229,cee4222b-36e0-4997-a8f0-4ac8252e76d9,282,349195396893818,02,2031,453a95d1-f49e-4c0e-acb5-25e04352ea33,agonzalez6342@example.com,Lake Christian,USA,Florida,64949,Ashley Gonzalez,0,0,1
+234,16dbdceb-bd6c-4fce-9a6b-f6b98c289c09,287,6011191610289143,10,2024,f9a17728-3cc6-4b5d-b27d-624868485341,cwillis3658@example.com,Lake Ashley,USA,Florida,14797,Christian Willis,0,0,1
+334,20547b62-0118-4b7f-b3b9-215fc4a41c26,387,5196967544024295,09,2024,fabb9c28-3cff-4488-8602-5c0d22a37683,rbooth6969@example.com,Port Robertborough,USA,Florida,63891,Ryan Booth,0,0,1
+344,db21b184-e722-4ac7-b81e-b210bc342dc4,397,3518147928202579,08,2024,0c1db65e-949d-44d4-971f-f80855319ee9,kcastro2288@example.com,South Ginaton,USA,Florida,25011,Karen Castro,0,0,1
+552,f4b430eb-97d8-4cea-9b24-9b054a4d7b11,605,3529412230992912,01,2024,2c137337-9b5d-4d9e-b9f5-890324ac6c6a,mhenson9221@example.com,Moodyview,USA,Arizona,35201,Melanie Henson,0,0,1
+577,20438490-7d83-46a3-940b-a0da1cc4e8be,630,3565760166514018,09,2025,a17cdc98-ac80-45d7-afc2-cc431d9f4e91,kharris9709@example.com,Lutzshire,USA,Florida,61945,Karen Harris,0,0,1
+749,ece36c76-e5c6-4a29-8d9c-2d2635ac8d47,802,6011893766168274,09,2025,f21fa52d-00e6-41a8-8a52-52a6dc2619fa,gjones8735@example.com,Kurtmouth,USA,Florida,44995,George Jones,0,0,1
+912,810aca37-e5a1-43e1-9c89-60c17e23e8a6,965,4580411856818447,01,2024,03301335-0605-4648-9b6c-e34220466a54,delliott8470@example.com,Port John,USA,Alaska,32979,Danielle Elliott,0,1,1
+923,a34254a6-955f-42bd-9a1b-6c0ab0ad3c6b,976,6501578718682277,01,2028,2d3fa0bf-a3de-43ec-ad8c-8a51d0959632,skennedy4103@example.com,Huffmanland,USA,Florida,73287,Shawn Kennedy,1,1,1
+949,180592dc-38db-41e5-9ca6-f430b31d158c,1002,6572630171467276,06,2023,93bf31b7-b7b5-4e38-ac58-243aea9c46dd,khernandez3791@example.com,Port Jessicabury,USA,Florida,30076,Kelly Hernandez,0,1,1
+1075,dd0e7ee0-855b-4521-aeb7-3c5f0c9a55f0,1128,4536176358334756,06,2025,1261feb5-c187-4f6b-8a6e-b72bd406ad1c,bburke2126@example.com,Woodsfurt,USA,Florida,70526,Billy Burke,0,0,1
+1116,ea20bda6-385b-4f3c-a0bd-13b69a3a7665,1169,4058388319986255,04,2024,48c72f39-3da7-45a4-80df-bd9589925f7d,dgomez5165@example.com,Lake Alexander,USA,Florida,32716,Donna Gomez,0,0,1
+1196,8d28c591-cfbe-40a7-ae34-586943da900c,1249,4515753323351959604,01,2025,cc31ac28-accf-4fd8-b549-4cdcecd2782d,jbrooks9934@example.com,New Timothyport,USA,Florida,23130,Jason Brooks,0,1,1
+1212,81e6cf73-2722-4e08-95a8-5ef991950675,1265,180009984987563,08,2025,c6467ea8-43d1-45d1-80f7-e596cab59439,mandersen7777@example.com,East Erica,USA,Florida,92988,Marissa Andersen,0,0,1
+1220,a3e1cc88-34ab-48c6-b2c6-a4338282b7b2,1273,4014303227942848,04,2025,7c8ec9c6-1e7e-4f93-9b9c-4ac52e8b5d9a,dwatkins7689@example.com,New Brenda,USA,Florida,08431,Derrick Watkins,0,0,1
+1330,27be493d-664f-482c-80f3-fc8d8c76676a,1383,2353112613928417,01,2024,e0b670c7-106d-41d1-b7c2-b109f722201a,taustin6882@example.com,Heatherport,USA,Florida,08051,Tammy Austin,0,1,1
+1630,d1d05d41-d63d-4593-bdc8-3bbfe9c30ddf,1683,639054488643,03,2024,6864715b-abf5-494b-b222-36e7dd92f7fc,rtodd8515@example.com,Lake William,USA,Alabama,10421,Rita Todd,0,0,1
+1653,db01aeb4-e43b-4a47-bfd4-d00249cc83c0,1706,585044299188,04,2026,408c4393-70dd-4dfb-be30-2544bb18efbb,ataylor4666@example.com,Lake Mark,USA,Florida,63606,April Taylor,0,0,1
+1689,b9a5a6af-07a4-484d-8ec5-8e82020894a0,1742,372961507215732,07,2024,eb2560e9-18f5-4a48-8c8c-0186d22e2b55,fhunter3971@example.com,Tyronemouth,USA,Florida,68465,Fernando Hunter,0,0,1
+1945,4046e3dc-dda3-43b5-b921-6b26f9b9c3aa,1998,501883262260,01,2033,0944a94c-d25f-4ba6-b100-3c59f79543b3,pdean5818@example.com,Martinezberg,USA,Florida,20555,Patricia Dean,0,1,1
+2153,98158b92-4c58-4acf-bfc0-cd4fb998b8c2,2206,6011780288832513,01,2023,ae162362-d4c9-46a7-ab5c-3ca3b9e34f6d,thowell4392@example.com,Cathymouth,USA,Alabama,07749,Todd Howell,0,1,1
+2371,bfa2c95f-467b-42b9-ab31-2890f7bfe916,2424,3589248499259610,01,2024,4dd6cac1-3c25-464f-a3eb-cb329460dea5,jlambert9159@example.com,Port Briannastad,USA,Virginia,40630,Jennifer Lambert,0,0,1
+2399,31a9c1a6-9188-482b-9457-24cc94d6bba9,2452,2281324723638821,02,2032,a45258dd-c403-43b8-bfc1-11e5e6cb1245,jward3067@example.com,Amandaport,USA,Florida,79011,James Ward,0,0,1
+2472,f5638215-5117-4dba-8ce4-2cb86672c681,2525,4264509515496387011,01,2024,9a57dcd9-796c-49a1-933f-4632e99d43b5,jweaver8607@example.com,West Angelaville,USA,Arizona,31408,James Weaver,0,0,1
+2510,8983d51b-70d6-4f37-861c-7c5fd8aa2262,2563,3576534437557305,04,2024,40b20771-e0a3-4f1f-b6c6-d0bfd0987c12,hrandolph3581@example.com,Lawrenceton,USA,Florida,48215,Heidi Randolph,0,0,1
+2631,b7de287e-bab8-4f7a-a790-a3ad4c8025da,2684,4260753180462179,02,2024,b397aa72-624f-4d6c-b543-c1ec6b293193,jbrown1927@example.com,Williamburgh,USA,Alabama,58835,Jennifer Brown,0,0,1
+2944,56f58fe3-65e9-4ae6-8151-34c8fb5fa209,2997,4990991407980,02,2033,bacf689a-033a-49b6-ac6f-914330df8b84,lgibson1551@example.com,Cesarfurt,USA,Florida,74255,Leslie Gibson,0,1,1
+3006,352d44ff-9608-441f-91ce-4dd77c610b70,3059,6011717120172807,01,2024,6b6cc9ea-b4bc-4c9b-b3f8-07009e52897d,jbarajas3622@example.com,Reginaview,USA,Florida,44206,Jason Barajas,0,1,1

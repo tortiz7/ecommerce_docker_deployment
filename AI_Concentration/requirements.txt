@@ -1,0 +1,22 @@
+# Core machine learning and data processing
+numpy==1.24.3
+pandas==2.0.2
+scikit-learn==1.2.2
+
+# Deep learning
+tensorflow==2.13.0
+keras==2.13.1
+
+# Database connectivity
+sqlite3  # Usually comes with Python
+
+# Utility packages
+joblib==1.2.0  # For model serialization
+matplotlib==3.7.1  # For visualization if needed
+seaborn==0.12.2   # For enhanced visualization
+
+# Optional but recommended for performance
+scipy==1.10.1     # Required by scikit-learn for optimal performance
+
+# Specify python version
+python==3.12
