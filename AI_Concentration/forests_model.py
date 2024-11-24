@@ -8,9 +8,6 @@ anomalous transactions based on various patterns and behaviors.
 The model analyzes transaction patterns, location data, and user behaviors to flag potentially 
 fraudulent activities in our payment processing system.
 
-Author: [Your Name]
-Project: E-commerce AI Implementation - Fraud Detection Module
-Date: November 2024
 """
 
 # Import required libraries for data processing and machine learning
