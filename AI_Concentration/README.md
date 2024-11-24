@@ -31,6 +31,7 @@ def engineer_features(data):
 
 **Data Preparation:** The preparation phase was crucial for ensuring our models would perform optimally. We standardized all location data to ensure consistency, developed frequency-based features to capture unusual patterns, implemented robust handling of missing values to maintain data integrity, and normalized all numerical features to ensure consistent model performance across different scales of data.
 
+---
 ### Model Selection
 
 **Comparative Analysis:**
@@ -104,6 +105,7 @@ def create_autoencoder(input_dim):
     return Model(input_layer, decoded)
 ```
 
+---
 ### Why Isolation Forest Won
 
 The Isolation Forest model distinguished itself through several compelling advantages:
@@ -136,6 +138,7 @@ overlap_analysis = {
 }
 ```
 
+---
 ### Tuning and Testing
 
 Optimization Process
@@ -148,6 +151,7 @@ We refined our approach through several carefully planned iterations:
 
 **Validation Process:** We implemented a thorough validation strategy to ensure reliability. This included cross-validation on our training data to verify consistency, testing on a separate fraud dataset to confirm effectiveness, and detailed analysis of how different models agreed or disagreed on suspicious transactions. This comprehensive approach helped confirm the robustness of our solution.
 
+---
 ## Results
 
 **Performance Analysis**
@@ -159,8 +163,6 @@ We refined our approach through several carefully planned iterations:
 - Transactions spread across multiple states that raised red flags
 - Suspicious patterns in email domain usage
 - Unusual frequencies in card usage that stood out from normal behavior
-
-
 
 **Model Effectiveness**
 
@@ -177,6 +179,7 @@ Our analysis revealed several key strengths in how the model performed:
 
 **Accuracy:** The low false positive rate was particularly impressive, meaning we're less likely to inconvenience legitimate customers while still catching suspicious activity.
 
+---
 ### Integration into Application UI
 
 **Implementation Strategy**
@@ -199,6 +202,7 @@ Our integration plan focuses on three key areas:
 - Daily summary reports that help identify emerging patterns
 - Customizable sensitivity controls that can be adjusted based on business needs
 
+---
 ### Deployment Steps
 
 **Model Deployment:** Our implementation plan prioritizes reliability and efficiency:
@@ -221,6 +225,7 @@ Our integration plan focuses on three key areas:
 - Scheduled model retraining to maintain accuracy
 - Systematic logging of false positives and negatives for continuous improvement
 
+---
 ## Conclusion
 
 Our implementation of the Isolation Forest model represents a significant step forward in fraud detection capabilities. It strikes an ideal balance between accuracy, efficiency, and maintainability - three crucial factors for any production system. The model's consistent performance across different datasets, combined with its practical advantages in implementation, makes it the perfect choice for our needs.
