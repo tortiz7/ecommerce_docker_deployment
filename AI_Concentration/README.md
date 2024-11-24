@@ -183,9 +183,9 @@ Our analysis revealed several key strengths in how the model performed:
 
 Our integration plan focuses on three key areas:
 
-**Real-time Processing Capabilities:** The system we've developed offers immediate transaction scoring without adding significant processing overhead. Each transaction receives a clear risk level indicator, and our automated flagging system helps prioritize which transactions need review. The speed and accuracy here are crucial for maintaining a smooth customer experience while ensuring security.
+**Real-time Processing Capabilities:** We would build out the system so it would offer immediate transaction scoring without adding significant processing overhead. Each transaction would receive a clear risk level indicator, and our automated flagging system would prioritize which transactions need review. The speed and accuracy here are crucial for maintaining a smooth customer experience while ensuring security.
 
-**Enhanced Admin Dashboard:** We've designed the admin interface to make fraud detection intuitive and efficient. Key features include:
+**Enhanced Admin Dashboard:** The admin interface would be streamlined, to make fraud detection intuitive and efficient. Key features include:
 
 - A new risk score column that gives immediate visibility into transaction risk levels
 - An intuitive color-coding system that helps quickly identify high-risk transactions
@@ -193,7 +193,7 @@ Our integration plan focuses on three key areas:
 - Efficient batch processing capabilities for reviewing historical data
 
 
-**Comprehensive Alert System:** Our alert mechanism is designed to keep fraud prevention proactive rather than reactive:
+**Comprehensive Alert System:** An alert mechanism designed to keep fraud prevention proactive rather than reactive would be implemented:
 
 - Immediate notifications for high-risk transactions that need urgent attention
 - Daily summary reports that help identify emerging patterns
