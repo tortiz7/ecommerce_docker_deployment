@@ -1440,6 +1440,13 @@ Rather than running the database migrations in the Dockerfile.backend container,
 We can (and should!) automate snapshots of our PostgreSQL DB so that we can easily back them up and use them for recovery operations should our database become corrupt or otherwise compromised. We can tag these snapshots by date or some other classifer so we can have a better idea of the contents of that snapshot, or even dump the database periodically into an S3 bucket to better sift through it's contents, or just dump RDS logs into that bucket for more targeted maintenance. 
 
 ---
+## AI Model: Fraud Detection Analysis and Implementation
+
+### Overview
+
+On top of creating the infrastrucutre for our Ecommerce application via Terraform and Jenkins, and containirizing the application via Docker, I was also tasked with creating a machine learning AI model that could assist in detecting fradulent transactions occuring on our Ecommerce website. Think of fraud detection like finding a needle in a digital haystack - we need the right tool for the job. To find the perfect model, I implemented and compared three machine learning approaches for detecting fraudulent transactions: Isolation Forest (our eventual winner), DBSCAN (Density-Based Spatial Clustering), and Autoencoders. After thorough analysis and optimization, Isolation Forest emerged as the optimal solution - providing the perfect balance of accuracy and efficiency, much like a well-calibrated metal detector rather than digging through the entire haystack by hand. To read the full Readme for the AI portion of this project, please navigate here:
+
+---
 ## Conclusion
 
 By leveraging Docker containers, Terraform Infrastructure as Code, Jenkins CI/CD, and a multi-AZ architecture, we've transformed a traditional deployment into a robust, scalable cloud ecosystem. This workload represents more than a technical upgrade—it's a strategic approach to cloud-native development that prioritizes flexibility, security, and operational excellence. Through containerization, infrastructure automation, and intelligent multi-subnet design, we've created an application infrastructure that can dynamically adapt, scale, and maintain high availability. This is a vast improvement on even the last Workload I've shared with you - and symbolized a huge evolution in my abilities as an engineer. 
